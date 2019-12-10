@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Adventure Works</title>
+    </h:head>
+    <h:body>
+        <center>
+        <h:form>
+            Registro De Usuarios <br></br>
+            <h:panelGrid columns="2">
+                Nombre:<h:inputText id="nometxt" value="#{ManagedBean.usuarios.name}"/>
+                User:<h:inputText id="user" value="#{ManagedBean.usuarios.user}"/>
+                password<h:inputSecret  id="password" value="#{ManagedBean.usuarios.password}"/>
+            <h:inputHidden/>
+            <h:commandButton value="Ingresar" action="#{ManagedBean.adicionarusuarios}"/>
+            </h:panelGrid>
+            <h:dataTable var="data" value="#{ManagedBean.listar_usuarios()}"  border ="1" >
+               
+                <h:column>
+                    <f:facet name="header">
+                        Nombre
+                    </f:facet>
+                    <h:outputText value="#{data.name}"/>
+                </h:column> 
+                   <h:column>
+                    <f:facet name="header">
+                        User
+                    </f:facet>
+                    <h:outputText value="#{data.user}"/>
+                </h:column> 
+                  <h:column>
+                    <f:facet name="header">
+                        Password
+                    </f:facet>
+                    <h:outputText value="#{data.password}"/>
+                </h:column> 
+            </h:dataTable>
+        </h:form>
+            </center>
+    </h:body>
+</html>
+
